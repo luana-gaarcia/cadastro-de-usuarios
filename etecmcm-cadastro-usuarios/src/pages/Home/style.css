@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: rgba(0, 0, 0, 0.795);
+  font-size: 32px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px;
+  border-radius: 10px;
+  background: linear-gradient(to bottom right, #213330, #4a5c3d);
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+form button {
+  border-radius: 30px;
+  background-color: #4a5c3d;
+  height: 40px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+
+form button:hover {
+  opacity: 0.8;
+  color: white;
+}
+
+form input {
+  border: 1px solid black;
+  border-radius: 30px;
+  height: 40px;
+  background-color: #21333076;
+  color: black;
+  font-size: 16px;
+  padding-left: 10px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  background: #4a5c3d;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  flex-wrap: wrap; /* permite quebra de linha */
+  gap: 10px; /* espaço entre linhas e colunas */
+}
+
+.card > div:first-child {
+  flex: 1 1 200px; /* deixa o texto ocupar o máximo possível, mas com mínimo */
+  min-width: 0; /* importante pra permitir que quebre texto */
+  word-wrap: break-word; /* força a quebra das palavras grandes */
+}
+
+.card p {
+  color: black;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  white-space: normal; /* permite quebra de linha */
+}
+
+.card button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0; /* não deixa o botão encolher */
+  align-self: center; /* centraliza verticalmente */
+}
+
+.card button img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+.card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card button {
+    margin-top: 10px;
+    align-self: flex-start;
+  }
+}

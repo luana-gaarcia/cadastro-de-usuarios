@@ -1,0 +1,11 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Cossette", sans-serif;
+}
+body {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to bottom right, #213330, #4a5c3d, #76813e, #96ad3b, #9f913c);
+}
