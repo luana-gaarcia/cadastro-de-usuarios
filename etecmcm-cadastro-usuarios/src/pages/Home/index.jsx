@@ -1,44 +1,47 @@
+import { useEffect, useState } from 'react'
 import './style.css'
-import Lixo from '../../assets/lixo.png'
+import Lixeira from '../../assets/lixeira.png'
+import api from '../../services/api'
 
 function Home() {
-  const usuarios = [{
-    id: '102030a',
-    nome: 'Luana',
-    idade: 18,
-    email: 'luana01@gmail.com'
-}, {
-    id: '304050b',
-    nome: 'Gacia',
-    idade: 17,
-    email: 'garcia02@gmail.com'
-}]
+  const [usuarios, setUsuarios] = useState([])
+
+  async function getUsusarios() {
+    const usuariosDaApi = await api.get('/cadastro')
+    setUsuarios(usuariosDaApi.data)
+    console.log(usuarios)
+  }
+
+  useEffect(() => {
+    getUsusarios()
+  },[])
+
   return (
-      <div className='container'>
-        <form>
-          <h1>CADASTRO DE USUÁRIOS</h1>
-          <input name= 'nome' type="text" />
-          <input name= 'idade' type="number" />
-          <input name= 'email' type="email" />
-          <button type='button'>CADASTRAR</button>
-        </form>
+    <div className='container'>
 
-        {usuarios.map(usuario => (
-          <div key={usuario.id} className='card'>
-            <div>
-              <p>Nome: {usuario.nome}</p>
-              <p>Idade: {usuario.idade}</p>
-              <p>Email: {usuario.email}</p> 
-            </div>
-            <div>
-              <button>
-                <img src={Lixo} />
-              </button>
-              </div>          
+      <form action="">
+        <h1>Cadastro de Usuários</h1>
+        <input name='nome' type='text' />
+        <input name='idade' type='number' />
+        <input name='email' type='email' />
+        <button type='button'>Cadastrar</button>
+      </form>
+
+      {usuarios.map(usuario => (
+        <div key={usuario.id} className='card'>
+          <div>
+            <p>Nome: {usuario.nome}</p>
+            <p>Idade: {usuario.idade}</p>
+            <p>Email: {usuario.email}</p>
           </div>
-        ))}
 
-      </div>
+          <button>
+            <img src={Lixeira} />
+          </button>
+        </div>
+      ))}
+
+    </div>
   )
 }
 
